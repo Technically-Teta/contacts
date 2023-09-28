@@ -1,5 +1,5 @@
 
-
+\c 
 
 DROP TABLE contacts;
  

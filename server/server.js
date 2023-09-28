@@ -6,10 +6,11 @@ require('dotenv').config();
 const db = require('./db/db-connection.js'); 
 
 const app = express();
-const PORT = 3000;
-
-// Configuring cors middlewares
+const PORT = process.env.PORT || 3000;
 app.use(cors());
+app.use(express.json());
+
+
 
 // Configuring body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
