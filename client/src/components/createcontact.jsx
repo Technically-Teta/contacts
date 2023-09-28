@@ -223,7 +223,7 @@ const buildColumns = useMemo(
 //CREATE FUNCTIONS FOR THE COLUMNS; EDIT AND DELETE  
    //MATERIAL REACTTABLE MAY BE DELETED * 
 
-
+console.log(tableData,buildColumns)
 
 
   return (
