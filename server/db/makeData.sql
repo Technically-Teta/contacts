@@ -33,7 +33,7 @@ VALUES (
     'Denver Hollis', 
     'Dms@gmail.com', 
     917-900-8422, 
-    'My wife game me this'
+    'My wife gave me this'
 );
 
 INSERT INTO contacts (

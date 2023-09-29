@@ -23,7 +23,6 @@ app.get("/", (req, res) => {
 
 //first test with postman: 
 app.get('/api/contacts', async (req, res) =>{
-
     //real connection with the DB 
     try{
         const { rows: contacts } = await db.query('SELECT * FROM contacts');
@@ -40,21 +39,29 @@ app.get('/api/contacts', async (req, res) =>{
 
 app.post('/api/contacts', async (req, res) =>{
 //ADDS INFO TO TABLE    
-
-    try {
-        const { name, email, phone,notes } = req.body;
-        const result = await db.query(
+const contactInfo ={
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    notes: req.body.notes
+};
+ console.log("In the server", contactInfo)
+    try {   
+        const contactResult = await db.query(
         "INSERT INTO contacts (name, email, phone, notes) VALUES ($1, $2, $3, $4) RETURNING *",
-            [name, email, phone, notes]
+            [contactInfo.name,contactInfo.email,contactInfo.phone, contactInfo.notes]
         );
-        let dbResponse = result.rows[0];
-        console.log(dbResponse)
+       // console.log(contactResult)
+        let dbResponse = contactResult.rows[0];
+        //console.log(dbResponse)
         res.json(dbResponse);
     } catch(error){
         console.log(error);
         res.status(400).json({error});
     }
 })
+
+
 
 //DELETE FROM events WHERE id=5;
 app.delete('/api/contacts/:id', async (req, res) =>{
