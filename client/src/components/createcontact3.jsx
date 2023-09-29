@@ -1,34 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 function CreateContact3() {
 // HANDLES THE FORM TO SUBMIT THE EDIT REQUEST       
     // Use states
-    const [contacts, setContacts] = useState([]);
-    const [id, idchange] = useState(0);
-    const [fullname, namechange] = useState('');
-    const [email, emailchange] = useState('');
-    const [phone, phonechange] = useState('');
-    const [notes, noteschange] = useState('');
+ 
+
+    const [id, idChange] = useState(0);
+    const [fullname, nameChange] = useState('');
+    const [email, emailChange] = useState('');
+    const [phone, phoneChange] = useState('');
+    const [notes, notesChange] = useState('');
     const navigate = useNavigate();
+    const { coid } = useParams();
 
 
-  
-    // Function to fetch contacts
-    const getRequest = () => {
-      fetch(`http://localhost:3000/api/contacts`)
-        .then((response) => response.json())
-        .then((contacts) => {
-          setContacts(contacts);
-          console.log('Contacts fetched...', contacts);
-        });
-    };
-  
+    useEffect(() => {
+        fetch('http://localhost:3000/api/contacts' + coid).then((res) => {
+            return res.json();
+        }).then((res) => {
+            // console.log(res);
+            idChange(res.id);
+            nameChange(res.fullname);
+            emailChange(res.email);
+            phoneChange(res.phone);
+            notesChange(res.notes);
+
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }, [coid]);
+
+
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const contactInfo = { id, fullname, email, notes };
 
-       fetch(`http://localhost:4000/api/contacts/` +id,
+       fetch(`http://localhost:3000/api/contacts/` +id,
         {
           method: 'PUT',
           headers: {
@@ -49,14 +61,45 @@ function CreateContact3() {
 
 
     // Use effect to fetch data when the component mounts
-    useEffect(() => {
-      getRequest();
-    }, []);
+  
   
     return (
         <div>
-          
-        </div>
+            <form className="container" onSubmit={handleSubmit}>
+                <div className="row">
+                    <div className="contact-offset">
+                    <h3>Add/Edit Contact</h3>
+                        <div className="form-group">
+                            <label>ID</label>
+                            <input value={id} disabled="disabled" className="form-control"></input>
+                        </div>
+
+                        <div className="form-group">
+                        <label>Name</label>
+                        <input value={fullname} onChange={e => nameChange(e.target.value)} className="form-control" required></input>
+                        {fullname.length == 0 && <span className="errormessage"> Please enter your full name</span>}
+                        </div>
+                        <div className="form-group">
+                            <label>Email</label>
+                            <input value={email} onChange={e => emailChange(e.target.value)} className="form-control" required></input>
+                            {email.length == 0 && <span className="errormessage"> Please enter your email</span>}
+                        </div>
+                        <div className="form-group">
+                            <label>Phone</label>
+                            <input value={phone} onChange={e => phoneChange(e.target.value)} className="form-control" required></input>
+                            {phone.length == 0 && <span className="errormessage"> Please enter your phone</span>}
+                        </div>
+                        <div className="form-group">
+                            <label>Notes</label>
+                            <input value={email} onChange={e => emailChange(e.target.value)} className="form-control" required></input>
+                            {email.length == 0 && <span className="errormessage">Add any notes here</span>}
+                        </div>
+
+
+                 </div>
+            </div>     
+        </form>
+    </div>
       )
     }
     

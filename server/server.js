@@ -40,7 +40,7 @@ app.get('/api/contacts', async (req, res) =>{
 app.post('/api/contacts', async (req, res) =>{
 //ADDS INFO TO TABLE    
 const contactInfo ={
-    name: req.body.name,
+    name: req.body.fullname,
     email: req.body.email,
     phone: req.body.phone,
     notes: req.body.notes
@@ -49,7 +49,7 @@ const contactInfo ={
     try {   
         const contactResult = await db.query(
         "INSERT INTO contacts (name, email, phone, notes) VALUES ($1, $2, $3, $4) RETURNING *",
-            [contactInfo.name,contactInfo.email,contactInfo.phone, contactInfo.notes]
+            [contactInfo.fullname,contactInfo.email,contactInfo.phone, contactInfo.notes]
         );
        // console.log(contactResult)
         let dbResponse = contactResult.rows[0];
