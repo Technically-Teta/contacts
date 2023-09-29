@@ -76,7 +76,7 @@ function CreateContact3() {
                         <div className="form-group">
                             <label>Email</label>
                             <input value={email} onChange={e => emailChange(e.target.value)} className="form-control" ></input>
-                            {email.length == 0 && <span className="errormessage"> Please enter your email</span>}
+                           
                         </div>
                         <div className="form-group">
                             <label>Phone</label>
@@ -86,7 +86,7 @@ function CreateContact3() {
                         <div className="form-group">
                             <label>Notes</label>
                             <input value={email} onChange={e => emailChange(e.target.value)} className="form-control" ></input>
-                            {email.length == 0 && <span className="errormessage">Add any notes here</span>}
+                            
                         </div>
                         <div className="form-group">
                             <button className="btn btn success" type="submit">Submit</button>

@@ -23,3 +23,8 @@ div.react-confirm-alert-body{
   color: #d44714c1;
   font-family: "lato", helvetica, sans-serif;
 }
+
+.errormessage{
+  color: red;
+  font-size: x-large;
+}
