@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
 function CreateContact3() {
 // HANDLES THE FORM TO SUBMIT THE EDIT REQUEST       
     // Use states
- 
-
     const [id, idChange] = useState(0);
     const [fullname, nameChange] = useState('');
     const [email, emailChange] = useState('');
     const [phone, phoneChange] = useState('');
     const [notes, notesChange] = useState('');
-    const navigate = useNavigate();
     const { coid } = useParams();
 
 
@@ -51,17 +48,14 @@ function CreateContact3() {
         }
       
     ).then(() => {
-        //console.log("data added");
-        navigate(-1);
+        console.log("data added");
+   
     }).catch((err) => {
         console.log(err.message);
     })
 }
 
 
-
-    // Use effect to fetch data when the component mounts
-  
   
     return (
         <div>

@@ -1,6 +1,6 @@
 import './App.css';
-import CreateContact from './components/createcontact';
-import Events from './components/events';
+import CreateContact3 from './components/createcontact3';
+
 
 
 
@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
     <h1>Techtonica Contacts list</h1>
-    <Events/>
-    <CreateContact/>
+ 
+    <CreateContact3/>
    
   </div>
 
