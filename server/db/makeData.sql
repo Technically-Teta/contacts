@@ -1,6 +1,3 @@
-
-\c newcontacts 
-
 DROP TABLE contacts;
  
 CREATE TABLE contacts (
