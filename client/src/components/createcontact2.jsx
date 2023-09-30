@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 
 function CreateContact2() {
   // Use states
@@ -80,23 +80,8 @@ function CreateContact2() {
                </thead>
                <tbody>
                 {contacts.map((contact) => (
-                 <Fragment>
-                    {editContact === contact.id ? (
-                        <EditableRow
-                        editFormData={editFormData}
-                        handleEditFormChange={handleEditFormChange}
-                        handleCancelClick={handleCancelClick}
-                        />
-                         ) : (
-                  <ReadOnlyRow
-                    contact={contact}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
-          </tbody>
+                 
+               </tbody>
         </table>
       </form>
                          
