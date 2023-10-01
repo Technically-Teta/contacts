@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
- 
+import {Link, useNavigate } from 'react-router-dom'; 
 
 
  function Contactlist() {
  const [contactData, setContactData] =useState([])
 
+  const navigate=useNavigate()
+  const Redirectdetail=(id) => {
+    navigate('/viewcontact/' + id)
 
+  }
 
  const getRequest = () => {
   fetch("http://localhost:3000/api/contacts")
@@ -46,6 +50,8 @@ useEffect(() => {getRequest()}, []);
         <td>{item.email}</td>
         <td>{item.phone}</td>
         <td>{item.notes}</td>
+        <td> <Link className="btn btn-primary" to={"/viewcontact/" + item.id}> Details</Link></td>
+        <td><button className="btn btn-primary"  onClick={()=>{Redirectdetail(item.id)}}>Details</button></td>
       </tr>
     )}
   </tbody>
