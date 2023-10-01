@@ -6,8 +6,8 @@ import useFetch from "./useFetch";
 
 
 function Contactlist() {
-  // Form Page
-const {contactData} = useFetch("http://localhost:3000/contact/");
+  // Form Page uses a get request
+const {contactData} = useFetch("http://localhost:3000/api/contacts/");
 
   const navigate = useNavigate();
 

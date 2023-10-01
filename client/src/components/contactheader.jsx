@@ -1,36 +1,48 @@
 
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar';
+
 import Container from 'react-bootstrap/Container';
 import {Link} from 'react-router-dom'
 
-function ContactHeader() {
+const ContactHeader = ({title}) => {
   return (
     <div className='nav-bar'>
      
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <nav className="bg-body-tertiary">
       <Container className='nav- cont'>
-        <Navbar.Brand href="#home">Personal Contacts</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <Nav.Link href="#link">View Contact</Nav.Link>
-            <li className="nav-item">
-          <Link className='nav-link' to="/createcontact3">Employee</Link>
-          </li>
-            </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      <h4 className='text-light'>{title}</h4>
+
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="" id="navbarNav">
+      <ul className="navbar-nav text-right">
+        <li className="nav-item">
+        <Link className='nav-link active' to="/home">Home</Link>
+        </li>
+        <li className="nav-item">
+        <Link className='nav-link' to="/addcontact">Add-New-Contact</Link>
+        </li>
+        <li className="nav-item">
+          <Link className='nav-link' to="/contactlist">contactlist</Link>
+        </li>
+        <li className="nav-item">
+          <Link className='nav-link' to="/createcontact3">Contact</Link>
+        </li>
+        <li className="nav-item">
+          <Link className='nav-link' to="/viewcontact">View-Contact</Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+         
   
 
 
 
 
     </div>
-  )
+  );
 }
 
 export default ContactHeader

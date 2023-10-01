@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 
 
 function CreateContact3() {
@@ -11,6 +11,7 @@ function CreateContact3() {
     const [phone, phoneChange] = useState('');
     const [notes, notesChange] = useState('');
     const { coid } = useParams();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -49,7 +50,7 @@ function CreateContact3() {
       
     ).then(() => {
         console.log("data added");
-   
+        navigate(-1)
     }).catch((err) => {
         console.log(err.message);
     })
@@ -62,7 +63,7 @@ function CreateContact3() {
             <form className="container" onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="contact-offset">
-                    <h3>Add/Edit Contact</h3>
+                    <h3>Edit Contact</h3>
                         <div className="form-group">
                             <label>ID</label>
                             <input value={id} disabled="disabled" className="form-control"></input>

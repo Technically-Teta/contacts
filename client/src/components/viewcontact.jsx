@@ -5,7 +5,7 @@ import useFetch from "./useFetch";
 
 
 function ViewContact() {
-//shows info for one user
+//shows info for one user - DETAILS
 //search allows to show user 
 const { id } = useParams()
 const { contact } = useFetch('http://localhost:3000/api/contact/' + id)
