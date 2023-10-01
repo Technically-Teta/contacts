@@ -40,7 +40,7 @@ app.get('/api/contacts', async (req, res) =>{
 app.post('/api/contacts', async (req, res) =>{
 //ADDS INFO TO TABLE    
 const contactInfo ={
-    name: req.body.fullname,
+    fullname: req.body.fullname,
     email: req.body.email,
     phone: req.body.phone,
     notes: req.body.notes
@@ -83,7 +83,7 @@ app.put('/api/contacts/:id', async (req, res) =>{
 
     try{
     const { id } = req.params;
-    const { name, email, phone, notes }  = req.body;
+    const { fullname, email, phone, notes }  = req.body;
     const editedContacts = await db.query("UPDATE contacts SET  name =$1, email=$2, phone=$3, notes=$4 WHERE id = $5 RETURNING *", [name, email, phone, notes, id]);
     res.json(editedContacts.rows[0])
     

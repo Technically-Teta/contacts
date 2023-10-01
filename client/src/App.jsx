@@ -10,15 +10,15 @@ import { useState } from 'react';
 
 function App() {
   
-
-
+const[title, titleUpdate] =useState("ContactsApp");
+console.log(titleUpdate);
 
 
   return (
     <div className="App">
-    <h1>Techtonica Contacts list</h1>
+    <h1>Personal Contacts App </h1>
     <BrowserRouter>   
-      <ContactHeader/>
+      <ContactHeader  title={title}></ContactHeader>
  
    
     <Routes>
@@ -43,3 +43,4 @@ function App() {
 }
 
 export default App
+ 

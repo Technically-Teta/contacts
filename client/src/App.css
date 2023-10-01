@@ -62,6 +62,24 @@ border-color: black;
  
     border: 3px solid ; 
     border-color: black;
-    
+}
+
+.contactheader{
+color: rgb(226, 226, 34);
+padding: 10px 0px;
+text-align: left;
+font-family: Arial, Helvetica, sans-serif;
+font-palette: black;
+}
+
+.contactheader{
+  background-color: aqua;
+  padding: 5px;
+  text-align: left;
+  
+  }
+  
+
+
 
 }
