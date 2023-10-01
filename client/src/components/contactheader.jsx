@@ -7,9 +7,9 @@ import {Link} from 'react-router-dom'
 function ContactHeader() {
   return (
     <div className='nav-bar'>
-      return (
+     
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+      <Container className='nav- cont'>
         <Navbar.Brand href="#home">Personal Contacts</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -24,7 +24,7 @@ function ContactHeader() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  
 
 
 

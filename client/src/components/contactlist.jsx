@@ -1,70 +1,85 @@
-import { useState, useEffect } from 'react';
+
 import Table from 'react-bootstrap/Table';
-import {Link, useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import useFetch from "./useFetch";
 
 
- function Contactlist() {
- const [contactData, setContactData] =useState([])
+function Contactlist() {
+  // Form Page
+const {contactData} = useFetch("http://localhost:3000/contact/");
 
-  const navigate=useNavigate()
-  const Redirectdetail=(id) => {
-    navigate('/viewcontact/' + id)
+  const navigate = useNavigate();
 
-  }
+  const Redirectdetail = (id) => {
+    // Take me to the contacts page based on their id
+    navigate('/viewcontact/' + id);
+  };
 
- const getRequest = () => {
-  fetch("http://localhost:3000/api/contacts")
-  .then((response) => response.json())
-  .then(contactData => {
-    setContactData(contactData); 
-    console.log('Events fetched...', contactData);
-    });
-}
+  // Edit contact function
+  const conEdit = (id) => {
+    navigate('/viewcontact/' + id);
+  };
 
-
-  
-
-
-
-
-useEffect(() => {getRequest()}, []);
+  const conDelete = (id) => {
+    if (window.confirm('Are you sure you want to delete this contact?')) {
+      fetch("http://localhost:3000/contact/" + id, { method: 'DELETE' })
+        .then(() => {
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  };
 
   return (
     <div>
-      <h3>Personal Contacts App</h3>
-      <Table className='table' striped="columns">
-  <thead>
-    <tr>
-      <th>#Id</th>
-      <th>Full Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    {contactData.map(item =>
-      <tr key={item.id}>
-        <td>{item.id}</td>
-        <td>{item.fullName}</td>
-        <td>{item.email}</td>
-        <td>{item.phone}</td>
-        <td>{item.notes}</td>
-        <td> <Link className="btn btn-primary" to={"/viewcontact/" + item.id}> Details</Link></td>
-        <td><button className="btn btn-primary"  onClick={()=>{Redirectdetail(item.id)}}>Details</button></td>
-      </tr>
-    )}
-  </tbody>
-</Table>
-</div>
-  )
- 
-
-
+      <div className='card-container'>
+        <Card>
+          <Link className='btn btn-success' to="/addContact">Add New Contact</Link>
+          <h3>Personal Contacts App</h3>
+          <Card.Body>
+            {contactData && 
+              <Table className='table' striped="columns">
+                <thead>
+                  <tr>
+                    <th>#Id</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {contactData.map((item) => (
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
+                      <td>{item.fullName}</td>
+                      <td>{item.email}</td>
+                      <td>{item.phone}</td>
+                      <td>{item.notes}</td>
+                      <td>
+                        <button className="btn btn-primary" onClick={() => Redirectdetail(item.id)}>Details</button>
+                      </td>
+                      <td>
+                        <button className="btn btn-primary" onClick={() => conEdit(item.id)}>Edit</button> |
+                        <button className="btn btn-danger" onClick={() => conDelete(item.id)}>Delete</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            }
+          </Card.Body>
+        </Card>
+      </div>
+    </div>
+  );
 }
 
-
 export default Contactlist;
+
 
 
 

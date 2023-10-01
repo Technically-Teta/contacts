@@ -53,6 +53,15 @@ border-color:salmon ;
 width: 100%;
 }
 
+.bg-body-tertiary{
+border: 3px solid ; 
+border-color: black;
+}
 
+.nav-container{
+ 
+    border: 3px solid ; 
+    border-color: black;
+    
 
 }
