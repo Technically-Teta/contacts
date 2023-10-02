@@ -15,7 +15,7 @@ function CreateContact3() {
 
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/contacts' + coid).then((res) => {
+        fetch('http://localhost:3000/api/contacts/' + coid).then((res) => {
             return res.json();
         }).then((res) => {
             // console.log(res);

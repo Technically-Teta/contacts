@@ -37,8 +37,37 @@ app.get('/api/contacts', async (req, res) =>{
 
 })
 
+//single contact get 
+app.get('/api/contacts/:id', async (req, res) =>{
+//reads the id    
+    const contactId = req.params.id
+    try{
+        const { rows: contact } = await db.query(`SELECT * FROM contacts WHERE id = ${contactId}`);
+        console.log("single contact retrieved", contact[0])
+        res.send(contact[0]);
+
+    } catch(error){
+        console.log(error);
+        return res.status(400).json({error});
+
+    }
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post('/api/contacts', async (req, res) =>{
-//ADDS INFO TO TABLE    
+//CORRECTED. ADDS INFO TO TABLE    
 const contactInfo ={
     fullname: req.body.fullname,
     email: req.body.email,

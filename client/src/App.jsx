@@ -18,7 +18,7 @@ console.log(titleUpdate);
     <div className="App">
     <h1>Personal Contacts App </h1>
     <BrowserRouter>   
-      <ContactHeader  title={title}></ContactHeader>
+      <ContactHeader/>
  
    
     <Routes>
