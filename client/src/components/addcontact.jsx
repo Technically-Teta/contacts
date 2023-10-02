@@ -19,7 +19,7 @@ const AddContact =()=> {
     e.preventDefault();
     const conobj ={fullname, email, phone, notes}
 
-    fetch("http://localhost:3000/api/contact", {
+    fetch("http://localhost:3000/api/contacts", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(conobj)
@@ -72,7 +72,7 @@ const AddContact =()=> {
 
                         <div className="form-group">
                             <br></br>
-                            <button className="btn btn-success" type="submit">Submit</button>
+                            <button className="btn btn-success" onClick={handlePOSTRequest} type="submit">Submit</button>
                         </div>
                     </div>
                 </div>

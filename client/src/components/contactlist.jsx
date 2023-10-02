@@ -55,7 +55,7 @@ const {contactData} = useFetch("http://localhost:3000/api/contacts/");
                   {contactData.map((item) => (
                     <tr key={item.id}>
                       <td>{item.id}</td>
-                      <td>{item.fullName}</td>
+                      <td>{item.fullname}</td>
                       <td>{item.email}</td>
                       <td>{item.phone}</td>
                       <td>{item.notes}</td>

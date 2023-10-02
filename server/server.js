@@ -48,7 +48,7 @@ const contactInfo ={
  console.log("In the server", contactInfo)
     try {   
         const contactResult = await db.query(
-        "INSERT INTO contacts (name, email, phone, notes) VALUES ($1, $2, $3, $4) RETURNING *",
+        "INSERT INTO contacts (fullname, email, phone, notes) VALUES ($1, $2, $3, $4) RETURNING *",
             [contactInfo.fullname,contactInfo.email,contactInfo.phone, contactInfo.notes]
         );
        // console.log(contactResult)
@@ -84,7 +84,7 @@ app.put('/api/contacts/:id', async (req, res) =>{
     try{
     const { id } = req.params;
     const { fullname, email, phone, notes }  = req.body;
-    const editedContacts = await db.query("UPDATE contacts SET  name =$1, email=$2, phone=$3, notes=$4 WHERE id = $5 RETURNING *", [name, email, phone, notes, id]);
+    const editedContacts = await db.query("UPDATE contacts SET  fullname =$1, email=$2, phone=$3, notes=$4 WHERE id = $5 RETURNING *", [fullname, email, phone, notes, id]);
     res.json(editedContacts.rows[0])
     
    } catch(error){
