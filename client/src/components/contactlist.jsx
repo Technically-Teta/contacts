@@ -23,7 +23,7 @@ const {contactData} = useFetch("http://localhost:3000/api/contacts/");
 
   const conDelete = (id) => {
     if (window.confirm('Are you sure you want to delete this contact?')) {
-      fetch("http://localhost:3000/contact/" + id, { method: 'DELETE' })
+      fetch("http://localhost:3000/api/contacts" + id, { method: 'DELETE' })
         .then(() => {
           window.location.reload();
         })
