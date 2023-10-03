@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate,useParams } from "react-router-dom";
 
 
-function CreateSubscriber() {
+function EditSubscriber() {
 // HANDLES THE FORM TO SUBMIT THE EDIT REQUEST       
     // Use states
     const [id, idChange] = useState(0);
@@ -105,5 +105,6 @@ function CreateSubscriber() {
       )
     }
     
-    export default CreateSubscriber
+    export default 
+    EditSubscriber
     
