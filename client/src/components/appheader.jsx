@@ -2,7 +2,7 @@
  import { Link } from 'react-router-dom';
 
  // eslint-disable-next-line react/prop-types
-const ContactHeader = ({ title }) => {
+const AppHeader = ({ title }) => {
 
   // import Navbar from 'react-bootstrap/Navbar';
   // import Form from 'react-bootstrap/Form';
@@ -103,4 +103,4 @@ const ContactHeader = ({ title }) => {
   );
 };
 
-export default ContactHeader;
+export default AppHeader;

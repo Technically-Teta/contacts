@@ -4,12 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 
 
-function ViewContact() {
+function ViewSubscriber() {
 //shows info for one user - DETAILS
 //search allows to show user 
 const { id } = useParams()
 const { contact } = useFetch('http://localhost:3000/api/contact/' + id)
 
+// change this to subscribers after you the update the table
 const navigate=useNavigate()
 const backtolist=()=>{
   //return back to previous page (-1)
@@ -49,4 +50,4 @@ const backtolist=()=>{
   );
 }
 
-export default ViewContact
+export default ViewSubscriber

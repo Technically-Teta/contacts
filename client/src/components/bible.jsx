@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import BookCard from "./bookcard";
+import BibleCard from "./biblecard";
 
-const Books = (props) => {
+
+const Bible = () => {
 
     const [verses, setVerses] = useState([]);
 
     const loadData = () => {
-        fetch('http://localhost:3003/api/verses')
+        fetch('http://localhost:3003/api/verses/')
             .then((response) => response.json())
             .then(data => {
                 setVerses(data);
@@ -23,11 +24,11 @@ const Books = (props) => {
                 <span>Page 1</span>/{verses.length}
             </div>
             {verses.map((bible, index) => {
-                return <BookCard key={index} bible={bible} />
+                return <BibleCard key={index} bible={bible} />
             })}
         </div>
     )
 
 }
 
-export default Books;
+export default Bible;

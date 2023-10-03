@@ -2,7 +2,7 @@
  import { useNavigate } from "react-router-dom";
 
  
-const AddContact =()=> {
+const AddSubscriber =()=> {
     const [id, idChange] = useState(0);
     const [fullname, fullnameChange] = useState(' ');
     const [email, emailChange] = useState('')
@@ -86,4 +86,4 @@ const AddContact =()=> {
 
 
 
-export default AddContact
+export default AddSubscriber

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate,useParams } from "react-router-dom";
 
 
-function CreateContact3() {
+function CreateSubscriber() {
 // HANDLES THE FORM TO SUBMIT THE EDIT REQUEST       
     // Use states
     const [id, idChange] = useState(0);
@@ -13,7 +13,7 @@ function CreateContact3() {
     const { coid } = useParams();
     const navigate = useNavigate();
 
-
+// change to subscriber 
     useEffect(() => {
         fetch('http://localhost:3000/api/contacts/' + coid).then((res) => {
             return res.json();
@@ -105,5 +105,5 @@ function CreateContact3() {
       )
     }
     
-    export default CreateContact3
+    export default CreateSubscriber
     

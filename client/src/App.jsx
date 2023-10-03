@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import ContactHeader from './components/contactheader';
+import AppHeader from './components/appheader';
 import Home from './components/Home';
-import ContactList from './components/contactlist';
-import AddContact from './components/addcontact';
-import CreateContact3 from './components/createcontact3';
-import ViewContact from './components/viewcontact';
-
+import SubscriberList from './components/subscriberlist';
+import AddSubscriber from './components/addsubscriber';
+import CreateSubscriber from './components/createsubscriber';
+import ViewSubscriber from './components/viewsubscriber';
+import Bible from './components/bible';
 
 function App() {
   
@@ -17,17 +17,17 @@ function App() {
     <div className="App">
     <h1>Personal Contacts App </h1>
     <BrowserRouter>   
-      <ContactHeader/>
+      <AppHeader/>
  
    
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/contactlist/:coid' element={<ContactList/>}></Route>
-      <Route path='/createcontact3/:coid' element={<CreateContact3/>}></Route>
-      <Route path='/viewcontact' element={<ViewContact/>}></Route>
-      <Route path='/addcontact' element={<AddContact/>}></Route>
-      <Route path='/contactlist' element={<ContactList/>}></Route>
-
+      <Route path='/subscriberlist/:coid' element={<SubscriberList/>}></Route>
+      <Route path='/createsubscriber/:coid' element={<CreateSubscriber/>}></Route>
+      <Route path='/viewsubscriber' element={<ViewSubscriber/>}></Route>
+      <Route path='/addsubscriber' element={<AddSubscriber/>}></Route>
+      <Route path='/subscriberlist' element={<SubscriberList/>}></Route>
+      <Route path='/bible' element={<Bible/>}></Route>
 ``
 
 

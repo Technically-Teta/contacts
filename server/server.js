@@ -1,8 +1,8 @@
+//type="module";
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-import fetch from 'node-fetch';
 require('dotenv').config();
 const db = require('./db/db-connection.js'); 
 
@@ -38,7 +38,7 @@ app.get('/api/verses', async (req, res) =>{
 
 })
 
-
+// change to subscribers 
 // //first test with postman: 
 // app.get('/api/contacts', async (req, res) =>{
 //     //real connection with the DB 

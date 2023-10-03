@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import useFetch from "./useFetch";
 
 // Use fetch works
-function Contactlist() {
+function SubscriberList() {
   // Form Page uses a get request
 const {contactData} = useFetch("http://localhost:3000/api/contacts/");
 
@@ -78,7 +78,7 @@ const {contactData} = useFetch("http://localhost:3000/api/contacts/");
   );
 }
 
-export default Contactlist;
+export default SubscriberList;
 
 
 
