@@ -1,10 +1,9 @@
-
 import Table from 'react-bootstrap/Table';
 import { Link, useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import useFetch from "./useFetch";
 
-
+// Use fetch works
 function Contactlist() {
   // Form Page uses a get request
 const {contactData} = useFetch("http://localhost:3000/api/contacts/");
@@ -22,16 +21,17 @@ const {contactData} = useFetch("http://localhost:3000/api/contacts/");
   };
 
   const conDelete = (id) => {
-    if (window.confirm('Are you sure you want to delete this contact?')) {
-      fetch("http://localhost:3000/api/contacts" + id, { method: 'DELETE' })
-        .then(() => {
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
-  };
+  
+      if (window.confirm('Are you sure you want to delete this contact?')) {
+        fetch("http://localhost:3000/api/contacts/" + id, { method: 'DELETE' })
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+      }
+    };
 
   return (
     <div>

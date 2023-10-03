@@ -22,13 +22,13 @@ function App() {
    
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/contactlist' element={<ContactList/>}></Route>
+      <Route path='/contactlist/:coid' element={<ContactList/>}></Route>
       <Route path='/createcontact3/:coid' element={<CreateContact3/>}></Route>
       <Route path='/viewcontact' element={<ViewContact/>}></Route>
       <Route path='/addcontact' element={<AddContact/>}></Route>
       <Route path='/contactlist' element={<ContactList/>}></Route>
 
-
+``
 
 
     </Routes>

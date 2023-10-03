@@ -58,14 +58,6 @@ app.get('/api/contacts/:id', async (req, res) =>{
 
 
 
-
-
-
-
-
-
-
-
 app.post('/api/contacts', async (req, res) =>{
 //CORRECTED. ADDS INFO TO TABLE    
 const contactInfo ={
