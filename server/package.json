@@ -2,7 +2,6 @@
   "name": "server",
   "version": "1.0.0",
   "main": "server.js",
- 
   "scripts": {
     "start": "nodemon server.js",
     "server": "nodemon server.js",
@@ -22,5 +21,7 @@
   },
   "keywords": [],
   "description": "",
-  "devDependencies": {}
+  "devDependencies": {
+    "postcss-import": "^15.1.0"
+  }
 }

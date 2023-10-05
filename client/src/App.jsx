@@ -8,6 +8,7 @@ import EditSubscriber from './components/editsubscriber';
 import ViewSubscriber from './components/viewsubscriber';
 import Bible from './components/bible';
 
+
 function App() {
   
 
@@ -15,9 +16,15 @@ function App() {
 
   return (
     <div className="App">
-    <h1>Personal Contacts App </h1>
+     <div className='blog-head'> 
+      <h1>The Bloggers Blog </h1>
+      </div>
+    <AppHeader/>
+       <div className='biblebox'>
+         <Bible/>
+       </div>
     <BrowserRouter>   
-      <AppHeader/>
+      
  
    
     <Routes>
@@ -43,3 +50,4 @@ function App() {
 
 export default App
  
+

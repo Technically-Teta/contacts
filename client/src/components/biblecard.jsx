@@ -7,8 +7,8 @@
           <div className={"bible-section"}>
                
                                                             
-             <div className='book-text'>{props.verses.book_name}</div>
-             <div className='answer-section'>{props.verses.chapter}</div>
+             <div className='book-text'>{props.verse.book_name}</div>
+             <div className='answer-section'>{props.verse.chapter}</div>
           
             
            

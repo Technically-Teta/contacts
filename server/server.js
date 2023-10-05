@@ -1,9 +1,9 @@
 //type="module";
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-require('dotenv').config();
 const db = require('./db/db-connection.js'); 
 
 const app = express();
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 
 
-//API ENDPOINT
+//API ENDPOINT -- GET
 
 app.get("/", (req, res) => {
     res.json("Hello Blog Server for Samelia's Project");
@@ -31,12 +31,42 @@ app.get('/api/verses', async (req, res) =>{
     try {
       const apiRequest = await fetch(URL);
       const bible = await apiRequest.json();
-      res.send(bible.results);
+      console.log(bible)
+      res.send(bible.verses);
     } catch (err){
       console.log(err);
     }
 
 })
+
+// // creates an endpoint for the route /api/weather
+// app.get('/api/verses/', (req, res) => {
+//   const verses = req.query.reference;
+//   //console.log(verses);
+//   const apiKey = process.env.API_KEY;
+
+//   // const params = new URLSearchParams({
+//   //   q: city,
+//   //   appid: apiKey,
+//   //   units: "Metric",
+//   // });
+
+//   const url =   `https://bible-api.com/?random=verse${params}`;
+ 
+//   fetch(url)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       //console.log(data);
+//       res.send({ data });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
+
+
+
+
 
 // change to subscribers 
 // //first test with postman: 

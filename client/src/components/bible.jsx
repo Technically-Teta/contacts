@@ -23,8 +23,8 @@ const Bible = () => {
             <div className='verses-container'>
                 <span>Page 1</span>/{verses.length}
             </div>
-            {verses.map((bible, index) => {
-                return <BibleCard key={index} bible={bible} />
+            {verses.map((verse, index) => {
+                return <BibleCard key={index} verse={verse} />
             })}
         </div>
     )
